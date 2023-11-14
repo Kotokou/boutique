@@ -4,14 +4,21 @@
  */
 package tg.univlome.epl.boutique2.entites;
 
+import jakarta.ws.rs.FormParam;
+
 /**
  *
  * @author papdav
  */
 public class Categorie {
-
+    
+    @FormParam("id")
     private int id;
+    
+    @FormParam("libelle")
     private String libelle;
+    
+    @FormParam("description")
     private String description;
 
     public Categorie() {

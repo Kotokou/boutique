@@ -54,6 +54,14 @@ public class ProduitService {
         return null;
     }
 
+    public Produit modifier(Produit e) {
+        if (liste.contains(e)) {
+            return liste.set(liste.indexOf(e), e);
+        }
+
+        return null;
+    }
+
     public List<Produit> lister() {
         return liste;
     }

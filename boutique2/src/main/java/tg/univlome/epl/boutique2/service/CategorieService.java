@@ -20,6 +20,9 @@ public class CategorieService {
 
     private CategorieService() {
         liste = new ArrayList<>();
+
+        liste.add(new Categorie(1, "Savon", ""));
+        liste.add(new Categorie(2, "Boisson", ""));
     }
 
     public static CategorieService getInstance() {
@@ -34,7 +37,7 @@ public class CategorieService {
         return liste;
     }
 
-    public Categorie recuperer(Long id) {
+    public Categorie recuperer(int id) {
         for (Categorie e : liste) {
             if (Objects.equals(e.getId(), id)) {
                 return e;
@@ -59,7 +62,7 @@ public class CategorieService {
         }
     }
 
-    public void supprimer(Long id) {
+    public void supprimer(int id) {
         liste.remove(recuperer(id));
     }
 }

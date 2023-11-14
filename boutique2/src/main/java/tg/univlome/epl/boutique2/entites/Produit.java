@@ -4,6 +4,7 @@
  */
 package tg.univlome.epl.boutique2.entites;
 
+import jakarta.ws.rs.FormParam;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -13,10 +14,19 @@ import java.util.Objects;
  */
 public class Produit {
 
+    @FormParam("id")
     private int id;
+    
+    @FormParam("libelle")
     private String libelle;
+    
+    @FormParam("prixUnitaire")
     private double prixUnitaire;
+    
+    @FormParam("datePeremption")
     private LocalDate datePeremption;
+    
+    @FormParam("categorie")
     private Categorie categorie;
 
     public Produit() {
