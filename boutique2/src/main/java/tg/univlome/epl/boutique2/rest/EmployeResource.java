@@ -18,24 +18,25 @@ import tg.univlome.epl.boutique2.service.EmployeService;
  *
  * @author papdav
  */
-@Path("employe")
+@Path("/employe")
 public class EmployeResource {
 
     final private EmployeService employeService = EmployeService.getInstance();
 
     @GET
+    @Path("/all")
     public List<Employe> lister() {
         return this.employeService.lister();
     }
 
     @GET
-    @Path("{id}")
+    @Path("/{id}")
     public Employe recuperer(@PathParam("id") Long id) {
         return this.employeService.recuperer(id);
     }
 
     @GET
-    @Path("total")
+    @Path("/total")
     public int compter() {
         return this.employeService.compter();
     }
@@ -51,7 +52,7 @@ public class EmployeResource {
     }
 
     @DELETE
-    @Path("{id}")
+    @Path("/{id}")
     public void supprimer(@PathParam("id") Long id) {
         this.employeService.supprimer(id);
     }

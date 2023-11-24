@@ -11,7 +11,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+//import jakarta.ws.rs.Produces;
 import tg.univlome.epl.boutique2.entites.Categorie;
 import tg.univlome.epl.boutique2.service.CategorieService;
 import java.util.List;
@@ -20,25 +20,26 @@ import java.util.List;
  *
  * @author papdav
  */
-@Path("categorie")
+@Path("/categorie")
 public class CategorieResource {
 
     final private CategorieService service = CategorieService.getInstance();
 
-    @Produces({"application/json", "application/xml"})
+//    @Produces({"application/json", "application/xml"})
     @GET
+    @Path("/all")
     public List<Categorie> lister() {
         return this.service.lister();
     }
 
     @GET
-    @Path("{id}")
+    @Path("/{id}")
     public Categorie recuperer(@PathParam("id") int id) {
         return this.service.recuperer(id);
     }
 
     @GET
-    @Path("total")
+    @Path("/total")
     public int compter() {
         return this.service.compter();
     }
@@ -54,6 +55,7 @@ public class CategorieResource {
     }
 
     @DELETE
+    @Path("/{id}")
     public void supprimer(int id) {
         this.service.supprimer(id);
     }

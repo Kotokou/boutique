@@ -18,24 +18,25 @@ import tg.univlome.epl.boutique2.service.ProduitAcheteService;
  *
  * @author papdav
  */
-@Path("produit-achete")
+@Path("/produit-achete")
 public class ProduitAcheteResource {
 
     final private ProduitAcheteService produitAcheteService = ProduitAcheteService.getInstance();
 
     @GET
+    @Path("/all")
     public List<ProduitAchete> lister() {
         return this.produitAcheteService.lister();
     }
 
     @GET
-    @Path("{achat_id}/{produit_id}")
+    @Path("/{achat_id}/{produit_id}")
     public ProduitAchete recuperer(@PathParam("achat_id") Long achat_id, @PathParam("produit_id") Long produit_id) {
         return this.produitAcheteService.recuperer(achat_id, produit_id);
     }
 
     @GET
-    @Path("total")
+    @Path("/total")
     public int compter() {
         return this.produitAcheteService.compter();
     }
@@ -51,7 +52,7 @@ public class ProduitAcheteResource {
     }
 
     @DELETE
-    @Path("{achat_id}/{produit_id}")
+    @Path("/{achat_id}/{produit_id}")
     public void supprimer(@PathParam("achat_id") Long achat_id, @PathParam("produit_id") Long produit_id) {
         this.produitAcheteService.supprimer(achat_id, produit_id);
     }

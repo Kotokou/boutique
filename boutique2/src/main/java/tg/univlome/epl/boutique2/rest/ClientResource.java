@@ -18,24 +18,25 @@ import tg.univlome.epl.boutique2.service.ClientService;
  *
  * @author papdav
  */
-@Path("client")
+@Path("/client")
 public class ClientResource {
 
     final private ClientService clientService = ClientService.getInstance();
 
     @GET
+    @Path("/all")
     public List<Client> lister() {
         return this.clientService.lister();
     }
 
     @GET
-    @Path("{id}")
+    @Path("/{id}")
     public Client recuperer(@PathParam("id") Long id) {
         return this.clientService.recuperer(id);
     }
 
     @GET
-    @Path("total")
+    @Path("/total")
     public int compter() {
         return this.clientService.compter();
     }
@@ -51,7 +52,7 @@ public class ClientResource {
     }
 
     @DELETE
-    @Path("{id}")
+    @Path("/{id}")
     public void supprimer(@PathParam("id") Long id) {
         this.clientService.supprimer(id);
     }
